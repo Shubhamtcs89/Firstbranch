@@ -18,3 +18,21 @@ fi
 Then in a CRON, you can configure:
 
 * * * * * /bin/bash /opt/asg-cron.sh && /path/to/your/cron/task --and params
+
+{
+  "Statement": [
+    {
+      "Action": [
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:DescribeAutoScalingInstances",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstances"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
